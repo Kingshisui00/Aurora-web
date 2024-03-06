@@ -9,6 +9,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
+            position: relative; /* Ensure stars stay in the background */
+            overflow: hidden; /* Hide overflow */
             background-image: url('https://source.unsplash.com/1600x900/?space');
             background-repeat: no-repeat;
             background-size: cover;
@@ -21,6 +23,25 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+        .star {
+            position: absolute;
+            background-color: #fff;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+        }
+        @keyframes twinkle {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
             }
         }
         .header {
@@ -171,6 +192,23 @@
     </div>
 
     <script>
+        // Function to create stars and append them to the body
+        function createStars() {
+            const numStars = 50; // Adjust the number of stars as needed
+            const container = document.body;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDuration = `${Math.random() * 1 + 0.5}s`; // Adjust twinkling speed
+                container.appendChild(star);
+            }
+        }
+        
+        // Call the function to create stars when the page loads
+        window.onload = createStars;
+
         function toggleDescription(section) {
             var description = document.getElementById(section + "Desc");
             description.classList.toggle("show");
