@@ -123,8 +123,8 @@
         }
         .shooting-star {
             position: absolute;
-            width: 40px; /* Increased star size */
-            height: 40px; /* Increased star size */
+            width: 30px; /* Reduced star size */
+            height: 30px; /* Reduced star size */
             background-color: #fff;
             border-radius: 50%;
             opacity: 0;
@@ -209,22 +209,25 @@
         const shootingStarsContainer = document.querySelector('.shooting-stars');
 
         function createShootingStar() {
-            const star = document.createElement('div');
-            star.classList.add('shooting-star');
-            shootingStarsContainer.appendChild(star);
+            const numStars = 10; // Increased number of stars
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('shooting-star');
+                shootingStarsContainer.appendChild(star);
 
-            const top = Math.random() * 100;
-            const left = Math.random() * 100;
-            const size = Math.random() * 60 + 40; // Increased size range
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const size = Math.random() * 30 + 10; // Reduced size range
 
-            star.style.top = `${top}vh`;
-            star.style.left = `${left}vw`;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
+                star.style.top = `${top}vh`;
+                star.style.left = `${left}vw`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
 
-            setTimeout(() => {
-                star.remove();
-            }, 2000);
+                setTimeout(() => {
+                    star.remove();
+                }, 2000);
+            }
         }
 
         setInterval(createShootingStar, 500); // Reduced interval for more stars
