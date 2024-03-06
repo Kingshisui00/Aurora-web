@@ -117,8 +117,8 @@
         /* Shooting Star Animation */
         .shooting-star {
             position: absolute;
-            width: 5px;
-            height: 5px;
+            width: 10px;
+            height: 10px;
             background-color: #fff;
             border-radius: 50%;
             opacity: 0;
@@ -189,7 +189,7 @@
             </div>
         </div>
         <!-- Shooting Star Animation -->
-        <div class="shooting-star"></div>
+        <div class="shooting-stars"></div>
     </div>
 
     <script>
@@ -197,20 +197,19 @@
             var description = document.getElementById(section + "Desc");
             description.classList.toggle("show");
         }
-    </script>
-    <script>
+
         // Shooting Star Animation
         const container = document.querySelector('.container');
-        const shootingStar = document.querySelector('.shooting-star');
+        const shootingStarsContainer = document.querySelector('.shooting-stars');
 
         function createShootingStar() {
             const star = document.createElement('div');
             star.classList.add('shooting-star');
-            container.appendChild(star);
+            shootingStarsContainer.appendChild(star);
 
             const top = Math.random() * 100;
             const left = Math.random() * 100;
-            const size = Math.random() * 5;
+            const size = Math.random() * 20 + 10; // Increased size range
 
             star.style.top = `${top}vh`;
             star.style.left = `${left}vw`;
@@ -222,7 +221,7 @@
             }, 2000);
         }
 
-        setInterval(createShootingStar, 2000);
+        setInterval(createShootingStar, 1000); // Reduced interval for more stars
     </script>
 </body>
 </html>
