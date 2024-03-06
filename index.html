@@ -9,8 +9,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            position: relative; /* Ensure stars stay in the background */
-            /* overflow: hidden; Remove this line to enable scrolling */
+            position: relative;
             background-image: url('https://source.unsplash.com/1600x900/?space');
             background-repeat: no-repeat;
             background-size: cover;
@@ -42,6 +41,24 @@
             }
             100% {
                 opacity: 0;
+            }
+        }
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            animation: shooting-star linear infinite;
+            z-index: 9999;
+        }
+        @keyframes shooting-star {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-200vw, 100vh);
             }
         }
         .header {
@@ -205,9 +222,27 @@
                 container.appendChild(star);
             }
         }
+
+        // Function to create a shooting star
+        function createShootingStar() {
+            const shootingStar = document.createElement('div');
+            shootingStar.classList.add('shooting-star');
+            shootingStar.style.left = `${Math.random() * 100}%`;
+            shootingStar.style.top = `${Math.random() * 100}%`;
+            shootingStar.style.animationDuration = `${Math.random() * 3 + 1}s`; // Adjust shooting speed
+            document.body.appendChild(shootingStar);
+            // Remove the shooting star after animation ends
+            shootingStar.addEventListener('animationend', () => {
+                shootingStar.remove();
+            });
+        }
         
-        // Call the function to create stars when the page loads
-        window.onload = createStars;
+        // Call the function to create stars and shooting stars when the page loads
+        window.onload = function() {
+            createStars();
+            // Create shooting stars every few seconds
+            setInterval(createShootingStar, 8000); // Adjust interval as needed
+        };
 
         function toggleDescription(section) {
             var description = document.getElementById(section + "Desc");
