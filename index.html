@@ -121,14 +121,16 @@
             height: 100%;
             overflow: hidden;
         }
-        .shooting-star {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            transition: transform 2s linear, opacity 1s linear;
-        }
+       .shooting-star {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #fff;
+    opacity: 0.8;
+    transition: transform 2s linear, opacity 1s linear;
+}
     </style>
 </head>
 <body>
