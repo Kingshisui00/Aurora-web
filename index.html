@@ -6,7 +6,7 @@
     <title>Aurora-Bot Official Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-image: url('https://source.unsplash.com/1600x900/?space'); /* Space-themed background image */
@@ -15,7 +15,7 @@
             color: #fff;
         }
         .header {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for header */
             color: #fff;
             text-align: center;
             padding: 20px 0;
@@ -41,9 +41,10 @@
             margin: 10px;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             text-align: center;
             animation: slideIn 1s forwards;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for cards */
         }
         @keyframes slideIn {
             from {
@@ -53,31 +54,11 @@
                 transform: translateY(0);
             }
         }
-        .card {
-            background-color: #800080;
+        .card h2, .extra h2, .casino h2, .games h2, .contact h2, .public h2 {
+            color: #f0f0f0; /* Light text color for card titles */
         }
-        .extra {
-            background-color: #9932CC;
-        }
-        .casino {
-            background-color: #FFD700;
-        }
-        .games {
-            background-color: #00CED1;
-        }
-        .contact {
-            background-color: #FFA07A;
-        }
-        .public {
-            background-color: #FF1493;
-        }
-        h2 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #fff;
-            margin-bottom: 20px;
+        .card p, .extra p, .casino p, .games p, .contact p, .public p {
+            color: #d1d1d1; /* Slightly lighter text color for card descriptions */
         }
         .button {
             display: inline-block;
