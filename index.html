@@ -114,23 +114,6 @@
         .description.show {
             display: block;
         }
-        /* Shooting Star Animation */
-        .shooting-stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-       .shooting-star {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 8px solid #fff;
-    opacity: 0.8;
-    transition: transform 2s linear, opacity 1s linear;
-}
     </style>
 </head>
 <body>
@@ -140,7 +123,7 @@
     <div class="container">
         <div class="card" onclick="toggleDescription('anime')">
             <h2>Anime Card Game</h2>
-            <p>Experience the thrill of playing an anime-themed card game by collecting, buying, selling or trading them and by making the best collections of cards with Aurora WhatsApp Bot!</p>
+            <p>Experience the thrill of playing an anime-themed card game by collecting, buying, selling, or trading them and by making the best collections of cards with Aurora WhatsApp Bot!</p>
             <div id="animeDesc" class="description">
                 <p>This is the description for Anime Card Game.</p>
             </div>
@@ -185,8 +168,6 @@
                 <p>This is the description for Our whole new public bot.</p>
             </div>
         </div>
-        <!-- Shooting Star Animation -->
-        <div class="shooting-stars"></div>
     </div>
 
     <script>
@@ -194,37 +175,6 @@
             var description = document.getElementById(section + "Desc");
             description.classList.toggle("show");
         }
-
-        const container = document.querySelector('.container');
-        const shootingStarsContainer = document.querySelector('.shooting-stars');
-
-        function createShootingStar() {
-            const numStars = 10;
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.classList.add('shooting-star');
-                shootingStarsContainer.appendChild(star);
-
-                const top = Math.random() * 100;
-                const left = Math.random() * 100;
-                const size = Math.random() * 20 + 10;
-
-                star.style.top = `${top}vh`;
-                star.style.left = `${left}vw`;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-
-                setTimeout(() => {
-                    star.style.opacity = 0;
-                    star.style.transform = `translateY(100vh) translateX(${left}vw) rotate(720deg)`;
-                }, 1000);
-                setTimeout(() => {
-                    star.remove();
-                }, 2000);
-            }
-        }
-
-        setInterval(createShootingStar, 500);
     </script>
 </body>
 </html>
