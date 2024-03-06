@@ -9,7 +9,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://source.unsplash.com/1600x900/?space'); /* Space-themed background image */
+            background-image: url('https://source.unsplash.com/1600x900/?space');
             background-repeat: no-repeat;
             background-size: cover;
             color: #fff;
@@ -24,7 +24,7 @@
             }
         }
         .header {
-            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for header */
+            background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
             text-align: center;
             padding: 20px 0;
@@ -38,14 +38,14 @@
             margin: 0;
         }
         .container {
-            max-width: 800px; /* Adjusted width for better visibility of background */
+            max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            position: relative; /* Add relative positioning */
+            position: relative;
         }
         .card, .extra, .casino, .games, .contact, .public {
             margin: 20px;
@@ -53,7 +53,7 @@
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for cards */
+            background-color: rgba(0, 0, 0, 0.7);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover, .extra:hover, .casino:hover, .games:hover, .contact:hover, .public:hover {
@@ -61,12 +61,12 @@
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
         }
         .card h2, .extra h2, .casino h2, .games h2, .contact h2, .public h2 {
-            color: #f0f0f0; /* Light text color for card titles */
+            color: #f0f0f0;
             font-size: 24px;
             margin-bottom: 10px;
         }
         .card p, .extra p, .casino p, .games p, .contact p, .public p {
-            color: #d1d1d1; /* Slightly lighter text color for card descriptions */
+            color: #d1d1d1;
             font-size: 16px;
             line-height: 1.6;
         }
@@ -87,25 +87,25 @@
             opacity: 0.8;
         }
         .button-whatsapp {
-            background-color: #25D366; /* Whatsapp green */
+            background-color: #25D366;
         }
         .button-telegram {
-            background-color: #0088cc; /* Telegram blue */
+            background-color: #0088cc;
         }
         .button-instagram {
-            background-color: #E1306C; /* Instagram pink */
+            background-color: #E1306C;
         }
         .button-youtube {
-            background-color: #FF0000; /* YouTube red */
+            background-color: #FF0000;
         }
         .button-gmail {
-            background-color: #EA4335; /* Gmail red */
+            background-color: #EA4335;
         }
         .button-website {
-            background-color: #4CAF50; /* Default green */
+            background-color: #4CAF50;
         }
         .button-public {
-            background-color: #f6f8fa; /* github classic */
+            background-color: #f6f8fa;
             color: #333;
         }
         .description {
@@ -123,24 +123,11 @@
         }
         .shooting-star {
             position: absolute;
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 20px solid #fff;
-            opacity: 0;
-            animation: shootingStar 2s infinite;
-            transform: rotate(35deg);
-        }
-        @keyframes shootingStar {
-            0% {
-                opacity: 1;
-                transform: translateY(0) translateX(0);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(100vh) translateX(100vw);
-            }
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 2s linear, opacity 1s linear;
         }
     </style>
 </head>
@@ -206,12 +193,11 @@
             description.classList.toggle("show");
         }
 
-        // Shooting Star Animation
         const container = document.querySelector('.container');
         const shootingStarsContainer = document.querySelector('.shooting-stars');
 
         function createShootingStar() {
-            const numStars = 10; // Increased number of stars
+            const numStars = 10;
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.classList.add('shooting-star');
@@ -219,7 +205,7 @@
 
                 const top = Math.random() * 100;
                 const left = Math.random() * 100;
-                const size = Math.random() * 20 + 10; // Reduced size range
+                const size = Math.random() * 20 + 10;
 
                 star.style.top = `${top}vh`;
                 star.style.left = `${left}vw`;
@@ -227,12 +213,16 @@
                 star.style.height = `${size}px`;
 
                 setTimeout(() => {
+                    star.style.opacity = 0;
+                    star.style.transform = `translateY(100vh) translateX(${left}vw) rotate(720deg)`;
+                }, 1000);
+                setTimeout(() => {
                     star.remove();
                 }, 2000);
             }
         }
 
-        setInterval(createShootingStar, 500); // Reduced interval for more stars
+        setInterval(createShootingStar, 500);
     </script>
 </body>
 </html>
