@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora-Bot Official Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #080A52;
+            color: #fff;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .card, .extra, .casino, .games, .contact, .public {
+            flex: 1 1 300px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: slideIn 1s forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .card {
+            background-color: #800080;
+        }
+        .extra {
+            background-color: #9932CC;
+        }
+        .casino {
+            background-color: #FFD700;
+        }
+        .games {
+            background-color: #00CED1;
+        }
+        .contact {
+            background-color: #FFA07A;
+        }
+        .public {
+            background-color: #FF1493;
+        }
+        h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+        .button-whatsapp {
+            background-color: #25D366; /* Whatsapp green */
+        }
+        .button-telegram {
+            background-color: #0088cc; /* Telegram blue */
+        }
+        .button-instagram {
+            background-color: #E1306C; /* Instagram pink */
+        }
+        .button-youtube {
+            background-color: #FF0000; /* YouTube red */
+        }
+        .button-gmail {
+            background-color: #EA4335; /* Gmail red */
+        }
+        .button-website {
+            background-color: #4CAF50; /* Default green */
+        }
+        .button-public {
+            background-color: #f6f8fa; /* github classic */
+            color: #333;
+        }
+        .description {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Aurora-Bot</h1>
+    </div>
+    <div class="container">
+        <div class="card" onclick="toggleDescription('anime')">
+            <h2>Anime Card Game</h2>
+            <p>Experience the thrill of playing an anime-themed card game by collecting, buying, selling or trading them and by making the best collections of cards with Aurora WhatsApp Bot!</p>
+            <div id="animeDesc" class="description">
+                <p>This is the description for Anime Card Game.</p>
+            </div>
+        </div>
+        <div class="extra" onclick="toggleDescription('additional')">
+            <h2>Additional Card Game Functions</h2>
+            <p>Unlock additional card functions and features to enhance your experience in our bot. Be the one to bid the highest to win the auction of your favorite card, be the one to gather the cards from the card shop, and be the one to win competitions and win exclusive cards!</p>
+            <div id="additionalDesc" class="description">
+                <p>This is the description for Additional Card Game Functions.</p>
+            </div>
+        </div>
+        <div class="casino" onclick="toggleDescription('economy')">
+            <h2>Economy System of Aurora</h2>
+            <p>Gather your Aurora Bot credits by selling cards and other goods, try your luck by participating in the casino slot and gamble features, and don't forget to become a millionaire!</p>
+            <div id="economyDesc" class="description">
+                <p>This is the description for Economy System of Aurora.</p>
+            </div>
+        </div>
+        <div class="games" onclick="toggleDescription('games')">
+            <h2>Games</h2>
+            <p>Exploring the world of visual games created by our team of developers must be fascinating! Aurora Bot offers a diverse range of games to entertain and to make you stress-free. From the classic rock-paper-scissors game to the new quiz, our bot has something for everyone.</p>
+            <div id="gamesDesc" class="description">
+                <p>This is the description for Games.</p>
+            </div>
+        </div>
+        <div class="contact" onclick="toggleDescription('join')">
+            <h2>Join the Fun by Joining Our Sources!</h2>
+            <p>Click the buttons below to join Aurora Bot and start playing now!</p>
+            <a href="LINK_TO_YOUR_SUPPORT" class="button button-whatsapp">SUPPORT GROUP</a>
+            <a href="LINK_TO_YOUR_AUCTION" class="button button-telegram">AUCTION GROUP</a>
+            <a href="LINK_TO_YOUR_CASINO" class="button button-instagram">CASINO GROUP</a>
+            <a href="LINK_TO_YOUR_YOUTUBE_BOT" class="button button-youtube">YOUTUBE</a>
+            <a href="LINK_TO_YOUR_GMAIL_BOT" class="button button-gmail">GMAIL</a>
+            <a href="LINK_TO_YOUR_WEBSITE_BOT" class="button button-website">WEBSITE</a>
+        </div>
+        <div class="public" onclick="toggleDescription('public')">
+            <h2>Our whole new public bot!</h2>
+            <p>Hurray so this our official aurora public bot a minion version of our private bot.Obviously it dont have the cardgame, auction and card shop functions because those are private exclusive.Also similarily this version also have some exclusive features like extra commands of mods, casino, rpg and whole set of logo maker.We are working on the game directory so stay turned! (soon our new repo will come that will deal with our exclusive apis.)</p>
+            <p>Click the button below to create your own Aurora Bot</p>
+           <a href="LINK_TO_YOUR_public_BOT" class="button button-public">REPO</a>
+           <div id="publicDesc" class="description">
+                <p>This is the description for Our whole new public bot.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDescription(section) {
+            var description = document.getElementById(section + "Desc");
+            description.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
