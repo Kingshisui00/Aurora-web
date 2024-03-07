@@ -25,32 +25,30 @@
             }
         }
         .star {
-    position: absolute;
-    background-color: #fff;
-    width: 4px; /* Increase size */
-    height: 4px; /* Increase size */
-    border-radius: 50%;
-    animation: twinkle linear infinite;
-           }
+            position: absolute;
+            background-color: #fff;
+            width: 5px; /* Adjust size */
+            height: 5px; /* Adjust size */
+            border-radius: 50%;
+            opacity: 0; /* Initially invisible */
+            animation: twinkle linear infinite;
+        }
         @keyframes twinkle {
-            0% {
+            0%, 100% {
                 opacity: 0;
             }
             50% {
                 opacity: 1;
             }
-            100% {
-                opacity: 0;
-            }
         }
         .shooting-star {
-    position: absolute;
-    width: 4px; /* Increase size */
-    height: 4px; /* Increase size */
-    background-color: #fff;
-    animation: shooting-star linear infinite;
-    z-index: 9999;
-          }
+            position: absolute;
+            width: 5px; /* Adjust size */
+            height: 5px; /* Adjust size */
+            background-color: #fff;
+            opacity: 0; /* Initially invisible */
+            animation: shooting-star linear forwards;
+        }
         @keyframes shooting-star {
             0% {
                 opacity: 1;
@@ -61,6 +59,27 @@
                 transform: translate(-200vw, 100vh);
             }
         }
+        .shooting-star-tail {
+    position: absolute;
+    width: 4px; /* Adjust the width of the tail elements */
+    height: 4px; /* Adjust the height of the tail elements */
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the color and opacity of the tail elements */
+    border-radius: 50%;
+    transform: scale(1);
+    animation: shooting-star-tail linear infinite;
+}
+
+@keyframes shooting-star-tail {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+}
+
         .header {
             background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
@@ -201,8 +220,8 @@
             <h2>Our whole new public bot!</h2>
             <p>Hurray so this our official aurora public bot a minion version of our private bot.Obviously it dont have the cardgame, auction and card shop functions because those are private exclusive.Also similarily this version also have some exclusive features like extra commands of mods, casino, rpg and whole set of logo maker.We are working on the game directory so stay turned! (soon our new repo will come that will deal with our exclusive apis.)</p>
             <p>Click the button below to create your own Aurora Bot</p>
-           <a href="LINK_TO_YOUR_public_BOT" class="button button-public">REPO</a>
-           <div id="publicDesc" class="description">
+            <a href="LINK_TO_YOUR_public_BOT" class="button button-public">REPO</a>
+            <div id="publicDesc" class="description">
                 <p>This is the description for Our whole new public bot.</p>
             </div>
         </div>
@@ -223,20 +242,32 @@
             }
         }
 
-        // Function to create a shooting star
-        function createShootingStar() {
-            const shootingStar = document.createElement('div');
-            shootingStar.classList.add('shooting-star');
-            shootingStar.style.left = `${Math.random() * 100}%`;
-            shootingStar.style.top = `${Math.random() * 100}%`;
-            shootingStar.style.animationDuration = `${Math.random() * 3 + 1}s`; // Adjust shooting speed
-            document.body.appendChild(shootingStar);
-            // Remove the shooting star after animation ends
-            shootingStar.addEventListener('animationend', () => {
-                shootingStar.remove();
-            });
-        }
-        
+      // Function to create a shooting star
+function createShootingStar() {
+    const shootingStar = document.createElement('div');
+    shootingStar.classList.add('shooting-star');
+
+    const tailLength = 5; // Adjust the length of the tail
+    const tailInterval = 0.1; // Adjust the interval between tail elements
+
+    for (let i = 0; i < tailLength; i++) {
+        const tailElement = document.createElement('div');
+        tailElement.classList.add('shooting-star-tail');
+        tailElement.style.animationDelay = `${i * tailInterval}s`;
+        shootingStar.appendChild(tailElement);
+    }
+
+    shootingStar.style.left = `${Math.random() * 100}%`;
+    shootingStar.style.top = `${Math.random() * 100}%`;
+    shootingStar.style.animationDuration = `${Math.random() * 3 + 1}s`; // Adjust shooting speed
+    document.body.appendChild(shootingStar);
+    // Remove the shooting star after animation ends
+    shootingStar.addEventListener('animationend', () => {
+        shootingStar.remove();
+    });
+}
+
+
         // Call the function to create stars and shooting stars when the page loads
         window.onload = function() {
             createStars();
