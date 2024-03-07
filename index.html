@@ -258,29 +258,29 @@
         }
 
         // Function to create a shooting star
-        function createShootingStar() {
-            const shootingStar = document.createElement('div');
-            shootingStar.classList.add('shooting-star');
+function createShootingStar() {
+    const shootingStar = document.createElement('div');
+    shootingStar.classList.add('shooting-star');
 
-            const tailLength = 5; // Adjust the length of the tail
-            const tailInterval = 0.1; // Adjust the interval between tail elements
+    const tailLength = 10; // Increase the length of the tail
+    const tailInterval = 0.2; // Adjust the interval between tail elements
 
-            for (let i = 0; i < tailLength; i++) {
-                const tailElement = document.createElement('div');
-                tailElement.classList.add('shooting-star-tail');
-                tailElement.style.animationDelay = `${i * tailInterval}s`;
-                shootingStar.appendChild(tailElement);
-            }
+    for (let i = 0; i < tailLength; i++) {
+        const tailElement = document.createElement('div');
+        tailElement.classList.add('shooting-star-tail');
+        tailElement.style.animationDelay = `${i * tailInterval}s`;
+        shootingStar.appendChild(tailElement);
+    }
 
-            shootingStar.style.left = `${Math.random() * 100}%`;
-            shootingStar.style.top = `${Math.random() * 100}%`;
-            shootingStar.style.animationDuration = `${Math.random() * 3 + 1}s`; // Adjust shooting speed
-            document.body.appendChild(shootingStar);
-            // Remove the shooting star after animation ends
-            shootingStar.addEventListener('animationend', () => {
-                shootingStar.remove();
-            });
-        }
+    shootingStar.style.left = `${Math.random() * 100}%`;
+    shootingStar.style.top = `${Math.random() * 100}%`;
+    shootingStar.style.animationDuration = `${Math.random() * 5 + 3}s`; // Adjust shooting speed
+    document.body.appendChild(shootingStar);
+    // Remove the shooting star after animation ends
+    shootingStar.addEventListener('animationend', () => {
+        shootingStar.remove();
+    });
+}
 
         // Function to create particles
         function createParticles() {
